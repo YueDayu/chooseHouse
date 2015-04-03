@@ -12,9 +12,9 @@ collie.util.addEventListener(window, "load", function () {
     height: document.body.clientHeight
   };
 
-  var range = min(htSize.height, htSize.width) / 10;
+  var range = min(htSize.height, htSize.width) / 13;
   var top = 230;
-  var bottom = 150;
+  var bottom = 180;
   var num;
   var box;
 
@@ -175,7 +175,7 @@ collie.util.addEventListener(window, "load", function () {
     scale: nScale
   }).addTo(oLayer);
 
-  var wordX = personX + 230 * nScale;
+  var wordX = personX + 200 * nScale;
   var wordOutX = htSize.width + 10;
 
   var nohat = new collie.DisplayObject({
@@ -183,7 +183,7 @@ collie.util.addEventListener(window, "load", function () {
     width: 300,
     height: 300,
     x: wordOutX,
-    y: personY,
+    y: personY - 200 * nScale,
     angle: 0,
     zIndex: 2,
     useEvent: false,
@@ -236,7 +236,7 @@ collie.util.addEventListener(window, "load", function () {
     width: 300,
     height: 300,
     x: outLeftX,
-    y: personY,
+    y: personY - 250 * nScale,
     angle: 0,
     zIndex: 3,
     useEvent: true,
@@ -268,7 +268,7 @@ collie.util.addEventListener(window, "load", function () {
     var oTimer = collie.Timer.timeline();
     oTimer.add(0, "transition", nohat, 100, {
       set : ["x", "y"],
-      to : [wordOutX, personY]
+      to : [wordOutX, personY - 200 * nScale]
     });
     isShowNoHat = false;
   }
@@ -295,7 +295,7 @@ collie.util.addEventListener(window, "load", function () {
     var oTimer = collie.Timer.timeline();
     oTimer.add(0, "transition", noHurt, 100, {
       set : ["x", "y"],
-      to : [outLeftX, personY]
+      to : [outLeftX, personY - 250 * nScale]
     });
     isShowNoHurt = false;
   }
@@ -321,7 +321,7 @@ collie.util.addEventListener(window, "load", function () {
     num = getNum();
     oText.text(data[num].name + ":\n" + data[num].content);
     var oTimer = collie.Timer.timeline();
-    oTimer.add(0, "transition", oText, 2000, {
+    oTimer.add(0, "transition", oText, 1500, {
       set : ["x", "y"],
       to : [50, 50]
     });
@@ -336,22 +336,22 @@ collie.util.addEventListener(window, "load", function () {
       hitArea: [[0,0], [200, 0], [200, 50], [0, 50]]
     }).addTo(oLayer);
     var urlText = new collie.Text({
-      x : (htSize.width - 120) / 2,
+      x : (htSize.width - 165) / 2,
       y : htSize.height,
       width : 200,
       fontSize : 30,
       zIndex: 6,
       fontColor : "#ffffff"
     }).addTo(oLayer);
-    urlText.text("go there!");
+    urlText.text("GO THERE!");
 
-    oTimer.add(1900, "transition", box, 100, {
+    oTimer.add(1400, "transition", box, 100, {
       set : ["x", "y"],
       to : [(htSize.width - 200) / 2, htSize.height - 100]
     });
-    oTimer.add(1900, "transition", urlText, 100, {
+    oTimer.add(1400, "transition", urlText, 100, {
       set : ["x", "y"],
-      to : [(htSize.width - 120) / 2, htSize.height - 95]
+      to : [(htSize.width - 165) / 2, htSize.height - 92]
     });
   }
 
